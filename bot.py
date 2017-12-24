@@ -8,7 +8,6 @@ from kivy.uix.label import Label
 from kivy.uix.checkbox import CheckBox
 from kivy.uix.button import Button
 from random import randint
-from msvcrt import getch
 import time
 import os
 
