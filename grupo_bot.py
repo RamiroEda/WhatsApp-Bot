@@ -26,74 +26,78 @@ class ConfigPanel(GridLayout):
 
     search_browser = webdriver.Chrome(os.getcwd()+"/chromedriver.exe")
     search_browser_main_window = search_browser.current_window_handle
+
     browser = webdriver.Chrome(os.getcwd()+"/chromedriver.exe")
 
     def __init__(self, **kwargs):
         super(ConfigPanel, self).__init__(**kwargs)
         self.cols = 2
-        self.add_widget(Label(text=''))
-        self.add_widget(Label(text='Activar/Desactivar Comandos'))
-        self.add_widget(Label(text=self.bot_ext+'say'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=''))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text='Activar/Desactivar Comandos'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'say'))
         self.cmd1 = CheckBox(active=True)
         self.add_widget(self.cmd1)
-        self.add_widget(Label(text=self.bot_ext+'card'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'card'))
         self.cmd2 = CheckBox(active=True)
         self.add_widget(self.cmd2)
-        self.add_widget(Label(text=self.bot_ext+'dic'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'dic'))
         self.cmd3 = CheckBox(active=True)
         self.add_widget(self.cmd3)
-        self.add_widget(Label(text=self.bot_ext+'search'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'search'))
         self.cmd4 = CheckBox(active=True)
         self.add_widget(self.cmd4)
-        self.add_widget(Label(text=self.bot_ext+'chiste'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'chiste'))
         self.cmd5 = CheckBox(active=True)
         self.add_widget(self.cmd5)
-        self.add_widget(Label(text=self.bot_ext+'conf'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'conf'))
         self.cmd6 = CheckBox(active=True)
         self.add_widget(self.cmd6)
-        self.add_widget(Label(text=self.bot_ext+'loli'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'loli'))
         self.cmd7 = CheckBox(active=True)
         self.add_widget(self.cmd7)
-        self.add_widget(Label(text=self.bot_ext+'mywaifu'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'mywaifu'))
         self.cmd8 = CheckBox(active=True)
         self.add_widget(self.cmd8)
-        self.add_widget(Label(text=self.bot_ext+'dados'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'dados'))
         self.cmd9 = CheckBox(active=True)
         self.add_widget(self.cmd9)
-        self.add_widget(Label(text=self.bot_ext+'8ball'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'8ball'))
         self.cmd10 = CheckBox(active=True)
         self.add_widget(self.cmd10)
-        self.add_widget(Label(text=self.bot_ext+'cat'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'cat'))
         self.cmd11 = CheckBox(active=True)
         self.add_widget(self.cmd11)
-        self.add_widget(Label(text=self.bot_ext+'monachina3d'))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text=self.bot_ext+'monachina3d'))
         self.cmd12 = CheckBox(active=True)
         self.add_widget(self.cmd12)
-        self.add_widget(Label(text='__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________'))
-        self.add_widget(Label(text='__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________'))
-        self.add_widget(Label(text='Chat activo'))
-        self.active_chat = Label(text='')
+        self.add_widget(Button(background_color=[0,0,0,1],text=''))
+        self.add_widget(Button(background_color=[0,0,0,1],text=''))
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text='Bot activado'))
+        self.active_bot = Button(background_color=[1,0.2,0.2,1],text='No')
+        self.add_widget(self.active_bot)
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text='Chat activo'))
+        self.active_chat = Button(background_color=[0.2,0.2,0.2,1],text='')
         self.add_widget(self.active_chat)
-        self.add_widget(Label(text='Total de comandos ejecutados'))
-        self.ttl_cmd = Label(text='0')
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text='Total de comandos ejecutados'))
+        self.ttl_cmd = Button(background_color=[0.2,0.2,0.2,1],text='0')
         self.add_widget(self.ttl_cmd)
-        self.add_widget(Label(text='Ultimo comando'))
-        self.lst_cmd = Label(text='')
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text='Ultimo comando'))
+        self.lst_cmd = Button(background_color=[0.2,0.2,0.2,1],text='')
         self.add_widget(self.lst_cmd)
-        self.add_widget(Label(text='Ultimo mensaje'))
-        self.lst_msg = Label(text='')
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text='Ultimo mensaje'))
+        self.lst_msg = Button(background_color=[0.2,0.2,0.2,1],text='')
         self.add_widget(self.lst_msg)
-        self.add_widget(Label(text='Ultimo error'))
-        self.brw_excpt = Label(text='')
+        self.add_widget(Button(background_color=[0.2,0.2,0.2,1],text='Ultimo error'))
+        self.brw_excpt = Button(background_color=[0.2,0.2,0.2,1],text='')
         self.add_widget(self.brw_excpt)
-        self.btn = Button(text='Presiona aquí después de iniciar sesión.')
-        self.add_widget(self.btn)
-        self.btn.bind(on_press = self.start_second_thread)
+        self.add_widget(Button(background_color=[0,0,0,1],text=''))
+        self.add_widget(Button(background_color=[0,0,0,1],text=''))
+
         self.browser.get("https://web.whatsapp.com/")
         self.search_browser_main_window = self.search_browser.current_window_handle
+        self.start_second_thread()
 
-    def start_second_thread(self, it):
-        self.remove_widget(self.btn)
+    def start_second_thread(self):
         threading.Thread(target=self.main_program).start()
 
     def to_debug_text(self, s):
@@ -152,6 +156,9 @@ class ConfigPanel(GridLayout):
         if(cmd == self.bot_ext+"say" and self.cmd1.active):
             self.send_msg(cnt)
         elif(cmd == self.bot_ext+"card" and self.cmd2.active):
+            if(cnt == cmd):
+                self.send_msg("Por favor escriba algo para buscar...")
+                return;
             self.send_msg("Buscando...")
             self.search_browser.get("https://www.google.com.mx/search?q="+cnt.replace(" ","+"))
 
@@ -187,6 +194,10 @@ class ConfigPanel(GridLayout):
                             self.send_msg("No se encontraron resultados")
 
         elif(cmd == self.bot_ext+"dic" and self.cmd3.active):
+            if(cnt == cmd):
+                self.send_msg("Por favor escriba algo para buscar...")
+                return;
+
             self.send_msg("Buscando...")
             self.search_browser.get("https://www.google.com.mx/search?q=define%3A"+cnt.replace(" ","+"))
             res = self.search_browser.find_elements_by_css_selector(".lr_dct_ent.vmod")
@@ -195,6 +206,9 @@ class ConfigPanel(GridLayout):
             else:
                 self.send_msg( "No se encontraron resultados")
         elif(cmd == self.bot_ext+"search" and self.cmd4.active):
+            if(cnt == cmd):
+                self.send_msg("Por favor escriba algo para buscar...")
+                return;
             self.send_msg("Buscando...")
             self.search_browser.get("https://www.google.com.mx/search?q="+cnt.replace(" ","+"))
 
@@ -221,10 +235,10 @@ class ConfigPanel(GridLayout):
             self.send_msg("Lanzando...")
             self.send_msg(str(randint(1,6)))
         elif(cmd == self.bot_ext+"8ball" and self.cmd10.active):
-            if(cnt == self.bot_ext+"8ball"):
+            if(cnt == cmd):
                 self.send_msg("Por favor pregunta algo a la bola mágica...")
-            else:
-                self.send_msg(self.ball8_answers[randint(0,19)])
+                return;
+            self.send_msg(self.ball8_answers[randint(0,19)])
         elif(cmd == self.bot_ext+"cat" and self.cmd11.active):
             self.send_msg("Buscando...")
             self.random_img("cute cats", "Este gato es demasiado para tí.\nBuscando más gatos")
@@ -233,18 +247,30 @@ class ConfigPanel(GridLayout):
             self.send_msg("(Sujeto a errores con monos chinos 3d :v)")
             self.random_img('"ggspics" cute site:twitter.com', "Resulta que esa mona china 3d era hombre.\nBuscando otra mona china 3d.")
         elif(cmd == self.bot_ext+"cmd"):
-            self.send_msg("• "+self.bot_ext+"say solicitud -> Diré lo que escribas. (ej. "+self.bot_ext+"say Soy un bot :v)")
-            self.send_msg("• "+self.bot_ext+"search solicitud -> Enviaré 5 links a páginas sobre lo que escribas. (ej. "+self.bot_ext+"search 7 razones para no suicidarme)")
-            self.send_msg("• "+self.bot_ext+"dic solicitud -> Buscaré la definicion de diccionario sobre lo que escribas. (ej. "+self.bot_ext+"dic Computadora)")
-            self.send_msg("• "+self.bot_ext+"card solicitud -> Mandaré información de las tarjetas de Google sobre lo que escribas como bandas, lugares, personas, peliculas, repartos, etc. (ej. "+self.bot_ext+"card Cinemex cartelera)")
-            self.send_msg("• "+self.bot_ext+"chiste -> Contaré un chiste.")
-            self.send_msg("• "+self.bot_ext+"conf -> Buscaré confesiones anónimas de internet.")
-            self.send_msg("• "+self.bot_ext+"loli -> Te daré una loli en adopción 7u7.")
-            self.send_msg("• "+self.bot_ext+"cat -> Te mandaré un gato bien prron.")
-            self.send_msg("• "+self.bot_ext+"dados -> Te daré un número entre 1 y 6.")
-            self.send_msg("• "+self.bot_ext+"mywaifu -> Buscaré a tu verdadera waifu 2d.")
-            self.send_msg("• "+self.bot_ext+"monachina3d -> Buscaré a una mona china 3d.")
-            self.send_msg("• "+self.bot_ext+"8ball pregunta -> Te responderé una pregunta (preguntas sí/no) que mandes.")
+            if(self.cmd1.active):
+                self.send_msg("• "+self.bot_ext+"say solicitud -> Diré lo que escribas. (ej. "+self.bot_ext+"say Soy un bot :v)")
+            if(self.cmd4.active):
+                self.send_msg("• "+self.bot_ext+"search solicitud -> Enviaré 5 links a páginas sobre lo que escribas. (ej. "+self.bot_ext+"search 7 razones para no suicidarme)")
+            if(self.cmd3.active):
+                self.send_msg("• "+self.bot_ext+"dic solicitud -> Buscaré la definicion de diccionario sobre lo que escribas. (ej. "+self.bot_ext+"dic Computadora)")
+            if(self.cmd2.active):
+                self.send_msg("• "+self.bot_ext+"card solicitud -> Mandaré información de las tarjetas de Google sobre lo que escribas como bandas, lugares, personas, peliculas, repartos, etc. (ej. "+self.bot_ext+"card Cinemex cartelera)")
+            if(self.cmd5.active):
+                self.send_msg("• "+self.bot_ext+"chiste -> Contaré un chiste.")
+            if(self.cmd6.active):
+                self.send_msg("• "+self.bot_ext+"conf -> Buscaré confesiones anónimas de internet.")
+            if(self.cmd7.active):
+                self.send_msg("• "+self.bot_ext+"loli -> Te daré una loli en adopción 7u7.")
+            if(self.cmd11.active):
+                self.send_msg("• "+self.bot_ext+"cat -> Te mandaré un gato bien prron.")
+            if(self.cmd9.active):
+                self.send_msg("• "+self.bot_ext+"dados -> Te daré un número entre 1 y 6.")
+            if(self.cmd8.active):
+                self.send_msg("• "+self.bot_ext+"mywaifu -> Buscaré a tu verdadera waifu 2d.")
+            if(self.cmd12.active):
+                self.send_msg("• "+self.bot_ext+"monachina3d -> Buscaré a una mona china 3d.")
+            if(self.cmd10.active):
+                self.send_msg("• "+self.bot_ext+"8ball pregunta -> Te responderé una pregunta (preguntas sí/no) que mandes.")
         else:
             self.send_msg( "Para ver los comandos escribe "+self.bot_ext+"cmd.")
 
@@ -266,7 +292,21 @@ class ConfigPanel(GridLayout):
         #except Exception as e:
             #print(e)
 
-        while (1):
+        while True:
+            if self.stop.is_set():
+                return
+            while True:
+                try:
+                    self.browser.find_element_by_class_name("chat-title")
+                    self.active_bot.background_color = [0.2,1,0.2,1]
+                    self.active_bot.text = "Sí"
+                    if(self.active_chat.text == ""):
+                        self.active_chat.text = "Por favor entre en un chat..."
+                    break;
+                except Exception as e:
+                    self.active_bot.background_color = [1,0.2,0.2,1]
+                    self.active_bot.text = "No"
+                    time.sleep(1)
             try:
                 try:
                     self.active_chat.text = self.browser.execute_script('return document.getElementsByClassName("pane-header pane-chat-header")[0].getElementsByClassName("chat-title")[0].innerText')
@@ -274,17 +314,16 @@ class ConfigPanel(GridLayout):
                     msg_complete = self.browser.execute_script('var el = document.getElementsByClassName("msg"); return el[el.length-1].innerText')
                     msg_complete = msg_complete.replace('\n', "    ")
                 except Exception as e:
-                    self.brw_excpt.text = self.to_debug_text(str(e).split("(")[0])
-                    msg_content  = self.to_debug_text("[No se puede leer el mensaje]")
+                    self.brw_excpt.text = self.to_debug_text("[No se puede leer el mensaje]")
+                    msg_content  = "[No se puede leer el mensaje]"
                 self.lst_msg.text = self.to_debug_text(msg_complete)
-                msg = self.browser.find_elements_by_css_selector(".msg")
-                if(msg[self.browser.execute_script('return document.getElementsByClassName("msg").length-1;')].get_attribute("id") != "1" and msg_content[0]==self.bot_ext):
-                    msg = self.browser.find_elements_by_css_selector(".message")
-                    msg = msg[self.browser.execute_script('return document.getElementsByClassName("message").length-1;')]
+                msg = self.browser.find_elements_by_css_selector(".message")
+                msg = msg[self.browser.execute_script('return document.getElementsByClassName("message").length-1;')]
+                if(msg.get_attribute("id") != "1" and msg_content[0]==self.bot_ext):
                     try:
                         self.re_msg(msg)
                     except Exception as e:
-                        self.brw_excpt.text = self.to_debug_text(str(e).split("(")[0])
+                        self.brw_excpt.text = self.to_debug_text("[No se pudo responder el mensaje]")
                     self.ttl_cmd.text = str(int(self.ttl_cmd.text)+1);
                     self.browser.execute_script('var el = document.getElementsByClassName("msg"); el[el.length-1].id = 1')
                     split = msg_content.split(" ")
@@ -293,14 +332,20 @@ class ConfigPanel(GridLayout):
                     time.sleep(2)
                 time.sleep(0.1)
             except Exception as e:
-                self.brw_excpt.text = self.to_debug_text(str(e))
+                self.brw_excpt.text = self.to_debug_text("[Error al ejecutar el comando]")
             except:
                 self.brw_excpt.text = self.to_debug_text("[Error desconocido]")
+
 
 class MyApp(App):
     title = 'WhatsApp Bot Dashboard'
     def build(self):
         return ConfigPanel()
+
+    def on_stop(self):
+        self.root.stop.set()
+        self.root.browser.quit()
+        self.root.search_browser.quit()
 
 if __name__ == '__main__':
     MyApp().run()
