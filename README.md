@@ -1,4 +1,4 @@
-# WhatsApp-Bot Español
+# WhatsApp-Bot Español [DEPRECATED]
 Es un bot de variedad para chats de grupo o privado de WhatsApp orientado en mayor medida a un publico otaku.
 El bot usa la cuenta y el nombre de WhatsApp de quien lo ejecuta para poder leer y responder a los comandos de manera automática.
 ## Requisitos previos
