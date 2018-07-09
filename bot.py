@@ -91,6 +91,7 @@ class ConfigPanel(GridLayout):
         self.add_widget(self.brw_excpt)
         self.add_widget(Button(background_color=[0,0,0,1],text=''))
         self.add_widget(Button(background_color=[0,0,0,1],text=''))
+        print("juju")
 
         self.browser.get("https://web.whatsapp.com/")
         self.search_browser_main_window = self.search_browser.current_window_handle
@@ -104,9 +105,9 @@ class ConfigPanel(GridLayout):
 
     def re_msg(self, el):
         time.sleep(.25)
-        webdriver.ActionChains(self.browser).move_to_element(el).perform()
+        webdriver.ActionChains(self.browser).move_to_element(el).click(self.browser.find_element_by_css_selector("._2DNgV._1i1U7")).perform()
         time.sleep(.25)
-        self.browser.execute_script('document.getElementsByClassName("jZ4tp _1i1U7")[0].firstElementChild.click()')
+        self.browser.execute_script('document.getElementsByClassName("_2DNgV _1i1U7")[0].firstElementChild.click()')
         re_menu = self.browser.find_element_by_css_selector("._3lSL5._2dGjP._1vu-E")
         webdriver.ActionChains(self.browser).move_to_element(re_menu).click(re_menu).perform()
 
@@ -290,13 +291,15 @@ class ConfigPanel(GridLayout):
             #self.send_msg("Envía "+self.bot_ext+"cmd para ver los comandos.")
         #except Exception as e:
             #print(e)
+        print("hola1")
 
         while True:
             if self.stop.is_set():
+                print("hola3")
                 return
             while True:
                 try:
-                    self.browser.find_element_by_class_name("chat-title")
+                    self.browser.find_element_by_id("pane-side")
                     self.active_bot.background_color = [0.2,1,0.2,1]
                     self.active_bot.text = "Sí"
                     if(self.active_chat.text == ""):
@@ -308,23 +311,23 @@ class ConfigPanel(GridLayout):
                     time.sleep(1)
             try:
                 try:
-                    self.active_chat.text = self.browser.execute_script('return document.getElementsByClassName("pane-header pane-chat-header")[0].getElementsByClassName("chat-title")[0].innerText')
-                    msg_content = self.browser.execute_script('var el = document.getElementsByClassName("msg"); return el[el.length-1].getElementsByClassName("selectable-text")[0].innerText')
-                    msg_complete = self.browser.execute_script('var el = document.getElementsByClassName("msg"); return el[el.length-1].innerText')
+                    self.active_chat.text = self.browser.execute_script('return document.getElementsByClassName("_1wjpf")[document.getElementsByClassName("_1wjpf").length-1].innerText')
+                    msg_content = self.browser.execute_script('var el = document.getElementsByClassName("selectable-text invisible-space copyable-text"); return el[el.length-1].innerText')
+                    msg_complete = self.browser.execute_script('var el = document.getElementsByClassName("selectable-text invisible-space copyable-text"); return el[el.length-1].innerText')
                     msg_complete = msg_complete.replace('\n', "    ")
                 except Exception as e:
                     self.brw_excpt.text = self.to_debug_text("[No se puede leer el mensaje]")
                     msg_content  = "[No se puede leer el mensaje]"
                 self.lst_msg.text = self.to_debug_text(msg_complete)
-                msg = self.browser.find_elements_by_css_selector(".message")
-                msg = msg[self.browser.execute_script('return document.getElementsByClassName("message").length-1;')]
+                msg = self.browser.find_elements_by_css_selector(".vW7d1")
+                msg = msg[self.browser.execute_script('return document.getElementsByClassName("vW7d1").length-1;')]
                 if(msg.get_attribute("id") != "1" and msg_content[0]==self.bot_ext):
                     try:
                         self.re_msg(msg)
                     except Exception as e:
                         self.brw_excpt.text = self.to_debug_text("[No se pudo responder el mensaje]")
                     self.ttl_cmd.text = str(int(self.ttl_cmd.text)+1);
-                    self.browser.execute_script('var el = document.getElementsByClassName("msg"); el[el.length-1].id = 1')
+                    self.browser.execute_script('var el = document.getElementsByClassName("vW7d1"); el[el.length-1].id = 1')
                     split = msg_content.split(" ")
                     self.comando(split[0], msg_content.replace(split[0]+" ", "", 1))
                     self.lst_cmd.text = self.to_debug_text(msg_complete)
